@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getArticleComments, getSingleArticle } from "../utils/api";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import Votes from "./Votes";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -39,6 +40,7 @@ const SingleArticle = () => {
               <li key={comment.comment_id}>
                 <p>{comment.body}</p>
                 <p>votes: {comment.votes}</p>
+                <Votes votes={comment.votes} />
                 <p>by: {comment.author}</p>
                 <p>on: {moment(comment.created_at).format("MMM Do YY")}</p>
               </li>

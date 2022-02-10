@@ -4,16 +4,17 @@ const newsApi = axios.create({
   baseURL: "https://news-app-backend-heroku.herokuapp.com/api",
 });
 
-export const getArticles = (topic_slug, order, sort_by) => {
+export const getArticles = (topic_slug, sortBy) => {
   //  Alternative to axios params below:
   //   let path = "/articles?";
   //   if (topic_slug) path += `topic=${topic_slug}`;
+
+  let order = sortBy === "created_at" ? "DESC" : "ASC";
   return newsApi
     .get("/articles", {
-      params: { topic: topic_slug, order: order, sort_by: sort_by },
+      params: { topic: topic_slug, sort_by: sortBy, order: order },
     })
     .then((res) => {
-      console.log(res.data);
       return res.data.articles;
     });
 };

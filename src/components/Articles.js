@@ -6,19 +6,25 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 
 const Articles = () => {
-  const [articles, setArticles] = useState([]);
   const { topic_slug } = useParams();
+  const [articles, setArticles] = useState([]);
+  const [sortBy, setSortBy] = useState("created_at");
 
   useEffect(() => {
-    getArticles(topic_slug).then((res) => {
+    getArticles(topic_slug, sortBy).then((res) => {
       setArticles(res);
     });
-  }, [topic_slug]);
+  }, [topic_slug, sortBy]);
 
   return (
     <>
       <div className="Articles">
         <h1>Latest News Articles</h1>
+        <h3>Sort by:</h3>
+        <button onClick={() => setSortBy("created_at")}>Most Recent</button>
+        <button onClick={() => setSortBy("title")}>Title</button>
+        <button onClick={() => setSortBy("topic")}>Topic</button>
+        <button onClick={() => setSortBy("author")}>Author</button>
         <ul>
           {articles.map((article) => {
             return (
