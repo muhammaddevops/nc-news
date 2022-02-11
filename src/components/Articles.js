@@ -22,9 +22,8 @@ const Articles = () => {
         <h1>Latest News Articles</h1>
         <h3>Sort by:</h3>
         <button onClick={() => setSortBy("created_at")}>Most Recent</button>
-        <button onClick={() => setSortBy("title")}>Title</button>
-        <button onClick={() => setSortBy("topic")}>Topic</button>
-        <button onClick={() => setSortBy("author")}>Author</button>
+        <button onClick={() => setSortBy("comment_count")}>Comments</button>
+        <button onClick={() => setSortBy("votes")}>Votes</button>
         <ul>
           {articles.map((article) => {
             return (
@@ -36,11 +35,12 @@ const Articles = () => {
                   </Link>{" "}
                 </h3>
                 <p>
-                  Topic: {article.topic + " "} Comments: {article.comment_count}
+                  Topic: {article.topic + " "} Comments:{" "}
+                  {article.comment_count + " "} Votes: {article.votes}
                 </p>
                 <p>
                   By: {article.author + " "}
-                  On: {moment(article.created_at).format("MMM Do YY")}{" "}
+                  On: {moment(article.created_at).format("MMM Do YY")}
                 </p>
               </li>
             );

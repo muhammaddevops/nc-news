@@ -33,8 +33,8 @@ const SingleArticle = () => {
             <p>On: {moment(article.created_at).format("MMM Do YY")} </p>
             <p>Topic: {article.topic}</p>
             <p>{article.body}</p>
-            <p>Comments: {article.comment_count}</p>
             <Votes votes={article.votes} article_id={article.article_id} />
+            <p>Comments: {article.comment_count}</p>
           </li>
           {comments.map((comment) => {
             return (

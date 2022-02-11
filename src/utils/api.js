@@ -9,10 +9,10 @@ export const getArticles = (topic_slug, sortBy) => {
   //   let path = "/articles?";
   //   if (topic_slug) path += `topic=${topic_slug}`;
 
-  let order = sortBy === "created_at" ? "DESC" : "ASC";
+  //   let order = sortBy === "created_at" ? "DESC" : "ASC";
   return newsApi
     .get("/articles", {
-      params: { topic: topic_slug, sort_by: sortBy, order: order },
+      params: { topic: topic_slug, sort_by: sortBy },
     })
     .then((res) => {
       return res.data.articles;
