@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/User";
 
 const Topics = () => {
-  const userValues = useContext(UserContext);
-  console.log(userValues);
+  const { loggedInUser } = useContext(UserContext);
+  console.log(loggedInUser);
   const [topic, setTopic] = useState([]);
   useEffect(() => {
     getTopics().then((res) => {
@@ -17,6 +17,8 @@ const Topics = () => {
     <>
       <div>
         <Link to={`/`}>Home</Link>
+        <span>{loggedInUser.username}</span>
+        <img className="Nav_Avatar" src={loggedInUser.avatar_url} />
         {topic.map((name) => {
           return (
             <li key={name.slug}>

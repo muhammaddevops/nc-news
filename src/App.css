@@ -1,3 +1,9 @@
+.Nav_Avatar {
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .App {
   text-align: center;
 }
