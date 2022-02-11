@@ -34,13 +34,12 @@ const SingleArticle = () => {
             <p>Topic: {article.topic}</p>
             <p>{article.body}</p>
             <p>Comments: {article.comment_count}</p>
+            <Votes votes={article.votes} article_id={article.article_id} />
           </li>
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id}>
                 <p>{comment.body}</p>
-                <p>votes: {comment.votes}</p>
-                <Votes votes={comment.votes} />
                 <p>by: {comment.author}</p>
                 <p>on: {moment(comment.created_at).format("MMM Do YY")}</p>
               </li>

@@ -33,7 +33,14 @@ export const getSingleArticle = (article_id) => {
 
 export const getArticleComments = (article_id) => {
   return newsApi.get(`/articles/${article_id}/comments`).then((res) => {
-    console.log(res.data);
     return res.data;
   });
+};
+
+export const patchArticleVotes = (article_id) => {
+  return newsApi
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then((res) => {
+      console.log(res.data);
+    });
 };
