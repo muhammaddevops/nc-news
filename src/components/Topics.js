@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import { getTopics } from "../utils/api";
 import { Link } from "react-router-dom";
+import { UserContext } from "../contexts/User";
 
 const Topics = () => {
+  const userValues = useContext(UserContext);
+  console.log(userValues);
   const [topic, setTopic] = useState([]);
   useEffect(() => {
     getTopics().then((res) => {
@@ -13,6 +16,7 @@ const Topics = () => {
   return (
     <>
       <div>
+        <Link to={`/`}>Home</Link>
         {topic.map((name) => {
           return (
             <li key={name.slug}>
