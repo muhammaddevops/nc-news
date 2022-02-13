@@ -2,9 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleComments, getSingleArticle } from "../utils/api";
-import { Link } from "react-router-dom";
 import moment from "moment";
 import Votes from "./Votes";
+import NewComment from "./NewComment";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -23,6 +23,10 @@ const SingleArticle = () => {
     });
   }, [article_id]);
 
+  //capture comment + loggedinuser into an object
+  //pass object to api
+  //optimistic rendering of the comment?
+
   return (
     <>
       <div className="SingleArticle">
@@ -36,6 +40,7 @@ const SingleArticle = () => {
             <Votes votes={article.votes} article_id={article.article_id} />
             <p>Comments: {article.comment_count}</p>
           </li>
+          <NewComment article_id={article.article_id} />
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id}>

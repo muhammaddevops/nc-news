@@ -44,3 +44,12 @@ export const patchArticleVotes = (article_id) => {
       console.log(res.data);
     });
 };
+
+export const postComments = (article_id, reqBody) => {
+  return newsApi
+    .post(`/articles/${article_id}/comments`, reqBody)
+    .then((res) => {
+      console.log(res.data);
+      return res.data.comment;
+    });
+};
