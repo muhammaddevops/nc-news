@@ -5,6 +5,7 @@ import { getArticleComments, getSingleArticle } from "../utils/api";
 import moment from "moment";
 import Votes from "./Votes";
 import NewComment from "./NewComment";
+import DeleteComment from "./DeleteComment";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -15,17 +16,10 @@ const SingleArticle = () => {
     getSingleArticle(article_id).then((res) => {
       setArticle(res);
     });
-  }, [article_id]);
-
-  useEffect(() => {
     getArticleComments(article_id).then((res) => {
       setComments(res);
     });
   }, [article_id]);
-
-  //capture comment + loggedinuser into an object
-  //pass object to api
-  //optimistic rendering of the comment?
 
   return (
     <>
@@ -47,6 +41,11 @@ const SingleArticle = () => {
                 <p>{comment.body}</p>
                 <p>by: {comment.author}</p>
                 <p>on: {moment(comment.created_at).format("MMM Do YY")}</p>
+                {comment.author === "jessjelly" ? (
+                  DeleteComment(comment.comment_id)
+                ) : (
+                  <></>
+                )}
               </li>
             );
           })}

@@ -19,7 +19,7 @@ const Articles = () => {
   return (
     <>
       <div className="Articles">
-        <h1>Latest News Articles</h1>
+        <h1>Read the Latest and Greatest Articles</h1>
         <h3>Sort by:</h3>
         <button onClick={() => setSortBy("created_at")}>Most Recent</button>
         <button onClick={() => setSortBy("comment_count")}>Comments</button>
@@ -27,14 +27,17 @@ const Articles = () => {
         <ul>
           {articles.map((article) => {
             return (
-              <li key={article.article_id}>
+              <li className="oneArticle" key={article.article_id}>
                 <h3>
                   {" "}
-                  <Link to={`/articles/${article.article_id}`}>
+                  <Link
+                    className="ArticleTitles"
+                    to={`/articles/${article.article_id}`}
+                  >
                     {article.title}
                   </Link>{" "}
                 </h3>
-                <p>
+                <p className="ArticleTopicComments">
                   Topic: {article.topic + " "} Comments:{" "}
                   {article.comment_count + " "} Votes: {article.votes}
                 </p>

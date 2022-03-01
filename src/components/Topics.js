@@ -15,17 +15,21 @@ const Topics = () => {
   }, []);
   return (
     <>
-      <div>
-        <Link to={`/`}>Home</Link>
-        <span>{loggedInUser.username}</span>
-        <img className="Nav_Avatar" src={loggedInUser.avatar_url} />
+      <div className="NavBar">
+        <Link className="HomeButton" to={`/`}>
+          Home
+        </Link>
         {topic.map((name) => {
           return (
             <li key={name.slug}>
-              <Link to={`/${name.slug}/articles`}>{name.slug}</Link>
+              <Link className="NavTopics" to={`/${name.slug}/articles`}>
+                {name.slug}
+              </Link>
             </li>
           );
         })}
+        <span>{loggedInUser.username}</span>
+        <img className="Nav_Avatar" src={loggedInUser.avatar_url} />
       </div>
     </>
   );

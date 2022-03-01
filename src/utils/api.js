@@ -40,16 +40,20 @@ export const getArticleComments = (article_id) => {
 export const patchArticleVotes = (article_id) => {
   return newsApi
     .patch(`/articles/${article_id}`, { inc_votes: 1 })
-    .then((res) => {
-      console.log(res.data);
-    });
+    .then((res) => {});
 };
 
 export const postComments = (article_id, reqBody) => {
   return newsApi
     .post(`/articles/${article_id}/comments`, reqBody)
     .then((res) => {
-      console.log(res.data);
       return res.data.comment;
     });
+};
+export const deleteComment = (comment_id) => {
+  console.log(comment_id);
+  return newsApi.delete(`/comments/${comment_id}`).then((res) => {
+    console.log(res.data);
+    return res.data;
+  });
 };
