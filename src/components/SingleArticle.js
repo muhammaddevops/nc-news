@@ -30,7 +30,7 @@ const SingleArticle = () => {
             <h3> By: {article.author}</h3>
             <p>On: {moment(article.created_at).format("MMM Do YY")} </p>
             <p>Topic: {article.topic}</p>
-            <p>{article.body}</p>
+            <p className="SingleArticleBody">{article.body}</p>
             <Votes votes={article.votes} article_id={article.article_id} />
             <p>Comments: {article.comment_count}</p>
           </li>
@@ -38,7 +38,7 @@ const SingleArticle = () => {
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id}>
-                <p>{comment.body}</p>
+                <p className="CommentBody">{comment.body}</p>
                 <p>by: {comment.author}</p>
                 <p>on: {moment(comment.created_at).format("MMM Do YY")}</p>
                 {comment.author === "jessjelly" ? (

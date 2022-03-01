@@ -62,5 +62,9 @@ h3 {
   color: #c02b58;
 }
 
-.ArticleTopicComments {
+.ArticleTopicComments,
+.ArticleAuthorDate,
+.CommentBody,
+.SingleArticleBody {
+  font-weight: bold;
 }

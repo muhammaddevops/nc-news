@@ -41,7 +41,7 @@ const Articles = () => {
                   Topic: {article.topic + " "} Comments:{" "}
                   {article.comment_count + " "} Votes: {article.votes}
                 </p>
-                <p>
+                <p className="ArticleAuthorDate">
                   By: {article.author + " "}
                   On: {moment(article.created_at).format("MMM Do YY")}
                 </p>
