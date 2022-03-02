@@ -26,7 +26,7 @@ Users can see an appropriate errors if they go on a non-existent path / a path f
 Users cannot post a comment if the form is not filled in.
 
 ## Additional User Stories
-####Views can:
+#### Views can:
 - use the site on my mobile without sacrificing style or functionality (as I may not have my laptop nearby).
 - follow the readme instructions to easily run the project locally.
 - find a link to the hosted version of the project in the readme. (use a placeholder if not yet hosted!)
