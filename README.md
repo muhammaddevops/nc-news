@@ -7,9 +7,10 @@ This app is reddit-style app where users can read, post, comment and vote on art
 ## To run the application locally
 
 - Click code on the top right of this page and copy the URL for this repository
-- Open your terminal and then type. $ git clone {paste the URL of this repository} This will clone it.
-- Navigate (using the 'cd' command) into the new folder and type. $ npm install. This installs the required dependencies.
-- Finally, to run the React project type $ npm start.
+- Open your terminal and then type. 
+- ```$ git clone {paste the URL of this repository} ``` This will clone it.
+- Navigate (using the ```cd``` command) into the new folder and type. ```$ npm install``` This installs the required dependencies.
+- Finally, to run the React project type ```$ npm start```.
 
 
 ## User Stories when building the app
